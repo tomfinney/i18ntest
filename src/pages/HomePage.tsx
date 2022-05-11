@@ -1,15 +1,11 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/react";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { I18nContext } from "../i18n/i18n-react";
 import { Locales } from "../i18n/i18n-types";
 
 export function HomePage() {
   const thing = useContext(I18nContext);
-
-  useEffect(() => {
-    thing.setLocale("en");
-  }, []);
 
   return (
     <div
@@ -20,8 +16,14 @@ export function HomePage() {
       `}
     >
       <h1>test</h1>
-      <select onChange={(e) => thing.setLocale(e.target.value as Locales)}>
+      <select
+        onChange={(e) => {
+          console.log(e.target.value);
+          thing.setLocale(e.target.value as Locales);
+        }}
+      >
         <option value="en">en</option>
+        <option value="fr-FR">fr-FR</option>
         <option value="de">de</option>
       </select>
 

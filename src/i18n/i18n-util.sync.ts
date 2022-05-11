@@ -7,10 +7,12 @@ import { loadedFormatters, loadedLocales, locales } from './i18n-util'
 
 import de from './de'
 import en from './en'
+import fr_FR from './fr-FR'
 
 const localeTranslations = {
 	de,
 	en,
+	'fr-FR': fr_FR,
 }
 
 export const loadLocale = (locale: Locales) => {
